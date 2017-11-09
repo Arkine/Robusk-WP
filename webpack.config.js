@@ -1,12 +1,18 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     devtool: 'source-map',
-    entry: './src/index.js',
+    entry: [
+        './src/index.js'
+    ],
     output: {
         path: __dirname,
         filename: 'bundle.js'
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     module: {
         rules: [
@@ -22,33 +28,33 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: 'css-loader',
-                        options: {sourceMap: true}
-                    }, {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true,
-                            plugins: () => ([
-                                require('autoprefixer')({
-                                    browsers: ['last 2 versions', 'ie > 8'],
-                                }),
-                            ])
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {sourceMap: true}
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                plugins: () => ([
+                                    require('autoprefixer')({
+                                        browsers: ['last 2 versions', 'ie > 8'],
+                                    }),
+                                ])
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {sourceMap: true}
                         }
-                    }, {
-                        loader: 'sass-loader',
-                        options: {sourceMap: true}
-                    }]
+                    ]
                 })
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css", {allChunks: true}),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 8000,
-            proxy: 'http://localhost:3000/'
-        })
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin("bundle.css", {allChunks: true})
     ]
 };

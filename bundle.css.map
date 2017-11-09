@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"bundle.css","sourceRoot":""}
+{"version":3,"sources":["webpack:///./src/sass/components/header.scss"],"names":[],"mappings":"AAAA;EACC,aAAY;EAEZ,kBAAiB,EACjB","file":"bundle.css","sourcesContent":[".HeaderNav {\n\theight: 100%;\n\t// background-color: red;\n\tmax-height: 200px;\n}\n\n\n// WEBPACK FOOTER //\n// ./src/sass/components/header.scss"],"sourceRoot":""}
