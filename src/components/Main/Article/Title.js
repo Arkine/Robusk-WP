@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default class Title extends Component {
+export default class Title extends React.Component {
     extractPath(link) {
         const url = document.createElement('a');
         url.href = link;

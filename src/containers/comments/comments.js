@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import {fetchComments} from '../../actions';
@@ -6,7 +6,7 @@ import {fetchComments} from '../../actions';
 import Comment from '../../components/main/article/comment';
 import CommentForm from './commentForm';
 
-class Comments extends Component {
+class Comments extends React.Component {
     componentWillMount() {
         this.props.fetchComments(this.props.pId);
     }

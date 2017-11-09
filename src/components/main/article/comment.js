@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Content from './content';
 import CommentForm from '../../../containers/comments/commentForm';
 
-export default class Comment extends Component {
+export default class Comment extends React.Component {
     constructor() {
         super();
         this.state = {

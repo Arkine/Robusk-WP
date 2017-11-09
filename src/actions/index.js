@@ -12,6 +12,7 @@ export const CREATE_COMMENT = 'CREATE_COMMENT';
 export const ROUTER = 'ROUTER';
 
 const WP_API_ENDPOINT = `${RT_API.root}wp/v2`;
+
 const PRETTYPERMALINK_ENDPOINT = `${RT_API.root}react-theme/v1/prettyPermalink/`;
 const MENU_ENDPOINT = `${RT_API.root}react-theme/v1/menu-locations/`;
 

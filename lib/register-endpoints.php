@@ -1,17 +1,22 @@
 <?php
+/**
+ * Register Endpoints
+ *
+ * Registers API Endpoints from endpoints folder
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'Theme_Endpoints' ) ) :
+if ( ! class_exists( 'Robusk_Register_Endpoints' ) ) :
 
-	class Theme_Endpoints {
+	class Robusk_Register_Endpoints {
 		function __construct() {
-			include_once 'endpoints/add-featured-image.php';
-			include_once 'endpoints/add-formatted-date.php';
-			include_once 'endpoints/menus.php';
-			include_once 'endpoints/pretty-permalinks.php';
+			foreach (glob(__DIR__ . '/endpoints/*.php') as $filename) {
+				include_once($filename);
+			}
+
 		}
 
 		function init() {

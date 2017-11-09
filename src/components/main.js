@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Article from './main/article';
 import PageNav from '../containers/parts/pageNav';
 
-class Main extends Component {
+class Main extends React.Component {
     componentWillUpdate() {
         window.scrollTo(0, 0);
     }
@@ -22,14 +22,10 @@ class Main extends Component {
         });
     }
 
-    getClasses() {
-        return this.isSingle() ? '' : 'card-columns';
-    }
-
     render() {
         return (
             <div>
-                <main id="postsContainer" className={this.getClasses()}>
+                <main className="Posts">
                     <ReactCSSTransitionGroup
                         transitionName="fade"
                         transitionEnterTimeout={500}
@@ -48,4 +44,4 @@ function mapStateToProps({posts}) {
     return {posts};
 }
 
-export default connect(mapStateToProps)(Main)
+export default connect(mapStateToProps)(Main);

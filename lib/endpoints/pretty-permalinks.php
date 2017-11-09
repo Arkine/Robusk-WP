@@ -1,10 +1,10 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+	exit;
 }
 
-if ( ! class_exists( 'Pretty_Permalinks_Endpoint' ) ) :
+if (!class_exists('Pretty_Permalinks_Endpoint')) :
 
 	class Pretty_Permalinks_Endpoint {
 		function __construct() {

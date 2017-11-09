@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
     devtool: 'source-map',
@@ -43,6 +44,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css", {allChunks: true})
+        new ExtractTextPlugin("bundle.css", {allChunks: true}),
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 8000,
+            proxy: 'http://localhost:3000/'
+        })
     ]
 };

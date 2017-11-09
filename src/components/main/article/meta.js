@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Meta extends Component {
+export default class Meta extends React.Component {
     renderCategories() {
         if ('undefined' !== typeof this.props.categories) {
             return this.props.categories.map((cat, i) => {

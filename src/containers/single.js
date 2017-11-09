@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import {fetchPost} from '../actions/index';
@@ -7,7 +7,7 @@ import Header from '../components/header';
 import Main from '../components/main';
 import Footer from '../components/footer';
 
-class Single extends Component {
+class Single extends React.Component {
     componentWillMount() {
         this.props.fetchPost(this.props.location.pathname);
     }
@@ -24,7 +24,7 @@ class Single extends Component {
 
     render() {
         return (
-            <section className="container-fluid template-single">
+            <section className="post SinglePost">
                 <Header/>
                 <Main />
                 <Footer/>

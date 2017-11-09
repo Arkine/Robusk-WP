@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --progress --colors --watch"
   },
   "keywords": [],
   "author": "",
@@ -41,5 +41,9 @@
     "sass-loader": "^6.0",
     "style-loader": "^0.18",
     "webpack": "^3.5"
+  },
+  "devDependencies": {
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "webpack-dev-server": "^2.9.4"
   }
 }

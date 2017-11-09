@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {withRouter} from "react-router-dom";
 
-class Search extends Component {
+export default class Search extends React.Component {
     componentDidMount() {
         if ( this.props.isSearch) {
             this.searchInput.focus();
@@ -39,4 +39,4 @@ class Search extends Component {
     }
 }
 
-export default withRouter(Search);
+withRouter(Search);

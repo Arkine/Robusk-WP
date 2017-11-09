@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-class PageNav extends Component {
+class PageNav extends React.Component {
     getPrevPage() {
         const pageNum = parseInt(this.props.routerMatch.params.pageNum) || 1;
         return (pageNum > 2) ? `${this.getSlug()}/page/${pageNum - 1}/` : `/`;

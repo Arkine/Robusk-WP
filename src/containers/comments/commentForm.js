@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import {createComment} from '../../actions';
 
-class CommentForm extends Component {
+class CommentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

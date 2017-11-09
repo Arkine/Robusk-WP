@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import {fetchTaxInfo} from '../../actions';
 
 import Comments from '../comments/comments';
 
-class PostFooter extends Component {
+class PostFooter extends React.Component {
     componentWillMount() {
         if ('undefined' !== typeof this.props.tagIds && this.props.tagIds.length && this.props.isSingle) {
             this.props.fetchTaxInfo('tags', this.props.tagIds);

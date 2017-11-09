@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect, dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -8,7 +8,7 @@ import Header from '../components/header';
 import Main from '../components/main';
 import Footer from '../components/footer';
 
-class Search extends Component {
+class Search extends React.Component {
     componentWillMount() {
         this.props.searchSite(this.props.match.params.term);
         this.props.dispatch({
@@ -33,7 +33,7 @@ class Search extends Component {
 
     render() {
         return (
-            <section className="container-fluid template-search">
+            <section className="page Search">
                 <Header searchTerm={this.props.match.params.term} isSearch={true}/>
                 <Main/>
                 <Footer/>

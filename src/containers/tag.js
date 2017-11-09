@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect, dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -8,7 +8,7 @@ import Header from '../components/header';
 import Main from '../components/main';
 import Footer from '../components/footer';
 
-class Category extends Component {
+class Category extends React.Component {
     componentWillMount() {
         this.props.getTaxIdFromSlug('tags', this.props.match.params.slug);
         this.props.dispatch({
@@ -41,7 +41,7 @@ class Category extends Component {
 
     render() {
         return (
-            <section className="container-fluid template-tag">
+            <section className="page TagPage">
                 <Header/>
                 <Main/>
                 <Footer/>

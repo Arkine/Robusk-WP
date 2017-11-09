@@ -1,18 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Menu from '../containers/parts/menu';
 
-export default class Footer extends Component {
+export default class Footer extends React.Component {
     getYear() {
-        var date = new Date();
+        const date = new Date();
+
         return date.getFullYear();
     }
 
     render() {
         return (
-            <footer>
-                <Menu name="footer_menu"/>
-                <div className="clearfix copy">&copy; {this.getYear()} {RT_API.siteName} | Powered by: <a href="https://github.com/jackreichert/a-wp-react-redux-theme">A React+Redux WordPress theme</a></div>
+            <footer className="Footer">
+                <Menu name="primary" className="Footer__menu"/>
+                <span className="Footer__colophon"></span>
             </footer>
         );
     }

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect, dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -8,7 +8,7 @@ import Header from '../components/header';
 import Main from '../components/main';
 import Footer from '../components/footer';
 
-class Blog extends Component {
+class Page extends React.Component {
     componentWillMount() {
         this.props.fetchPosts(this.props.match.params.pageNum || 1);
         this.props.dispatch({
@@ -33,7 +33,7 @@ class Blog extends Component {
 
     render() {
         return (
-            <section className="container-fluid template-blog">
+            <section className="page">
                 <Header/>
                 <Main/>
                 <Footer/>
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(Object.assign({fetchPosts, dispatch}), dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Blog)
+export default connect(null, mapDispatchToProps)(Page);

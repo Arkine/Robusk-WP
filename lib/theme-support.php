@@ -1,28 +1,29 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+	exit;
 }
 
-if ( ! class_exists( 'Theme_Support' ) ) :
+if (!class_exists('Robusk_Theme_Support')) :
 
-	class Theme_Support {
-		function __construct() {
+	class Robusk_Theme_Support {
+		public function __construct() {
 		}
 
-		function init() {
+		public function init() {
 			$this->hooks();
 			$this->menus();
 		}
 
 		private function hooks() {
-			$this->remove_junk();
+			$this->cleanActions();
+
 			add_theme_support( 'post-thumbnails' );
-			add_filter( 'rest_allow_anonymous_comments', '__return_true' );
+
 			add_action( 'after_setup_theme', [ $this, 'title_tag' ] );
 		}
 
-		private function remove_junk() {
+		private function cleanActions() {
 			remove_action( 'wp_head', 'rsd_link' ); // remove really simple discovery link
 			remove_action( 'wp_head', 'wp_generator' ); // remove wordpress version
 

@@ -1,14 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Title from './article/title';
 import Content from './article/content';
 import Meta from './article/meta';
 import PostFooter from '../../containers/parts/postFooter';
 
-export default class Article extends Component {
-    getClasses() {
-        return this.props.isSingle ? 'card single w-75' : 'card archive';
-    }
+export default class Article extends React.Component {
 
     getFeaturedImageSrc() {
         if (this.props.post.featured_image_url) {
@@ -33,24 +30,27 @@ export default class Article extends Component {
     }
 
     render() {
-        const post = this.props.post;
+        const { post, isSingle } = this.props;
+
         return (
-            <article className={this.getClasses()}>
-                <img src={this.getFeaturedImageSrc()} className="card-img-top img-fluid"/>
-                <div className="card-block">
-                    <Title link={post.link} isSingle={this.props.isSingle}>
+            <article className="ArchiveList__card">
+                <img src={this.getFeaturedImageSrc()} />
+                <div className="ArchiveList__card__content">
+                    <Title link={post.link} isSingle={isSingle}>
                         {post.title.rendered}
                     </Title>
+
                     <Meta categories={this.getCategories(post.categories)}
                           date={post.date}
                           formattedDate={post.formatted_date}
                           type={post.type}
-                          isSingle={this.props.isSingle}/>
-                    <Content isSingle={this.props.isSingle}>
-                        {this.getContent(post, this.props.isSingle)}
+                          isSingle={isSingle}/>
+
+                    <Content isSingle={isSingle}>
+                        {this.getContent(post, isSingle)}
                     </Content>
                 </div>
-                <PostFooter type={post.type} pId={post.id} isSingle={this.props.isSingle} tagIds={post.tags} commentStatus={post.comment_status} />
+                <PostFooter type={post.type} pId={post.id} isSingle={isSingle} tagIds={post.tags} commentStatus={post.comment_status} />
             </article>
         );
     }

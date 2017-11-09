@@ -1,7 +1,12 @@
 <?php
+/**
+ * Add Formatted Date Endpoint
+ *
+ * Returns formatted date
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+	exit;
 }
 
 if ( ! class_exists( 'Add_Formatted_Date_Endpoint' ) ) :

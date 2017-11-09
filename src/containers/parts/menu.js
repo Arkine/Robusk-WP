@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchMenu} from '../../actions';
 
-class Menu extends Component {
+class Menu extends React.Component {
     componentWillMount() {
         this.props.fetchMenu(this.props.name);
     }
